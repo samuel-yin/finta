@@ -259,7 +259,7 @@ class TA:
                 return (w * x).sum() / d
             return _compute
 
-        close_ = ohlc["close"].rolling(period, min_periods=period)
+        close_ = ohlc[column].rolling(period, min_periods=period)
         wma = close_.apply(linear(weights))
 
         return pd.Series(wma, name="{0} period WMA.".format(period))
